@@ -27,6 +27,11 @@ router.post("/", async (req, res) => {
     res.redirect("/businesses")
 })
 
+//Show one business
+router.get("/:businessId", async(req,res) =>{
+    const findBusiness= await Business.findById(req.params.businessId)
+    res.render('businesses/show.ejs', { findBusiness : findBusiness})
+})
 
 
 
