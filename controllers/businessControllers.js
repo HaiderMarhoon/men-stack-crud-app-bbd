@@ -2,28 +2,31 @@ const express = require("express")
 const router = express.Router()
 const Business = require('../models/business')
 
-//test
-router.get("/" ,(req,res) =>{
-    res.send("do i work?")
+//Index
+router.get("/", async (req, res) => {
+    const allBusinesses = await Business.find()
+    console.log(`all Businesses ${allBusinesses}`)
+    res.render("businesses/index.ejs", { allBusinesses: allBusinesses })
 })
 
 //add route
-router.get("/new", (req,res) =>{
+router.get("/new", (req, res) => {
     res.render("businesses/new.ejs")
 })
 
 //post from data to db
-router.post("/" , async (req,res) =>{
-    if(req.body.isVerified === "on"){
+router.post("/", async (req, res) => {
+    if (req.body.isVerified === "on") {
         req.body.isVerified = true
     }
-    else{
+    else {
         req.body.isVerified = false
     }
     console.log(req.body)
     await Business.create(req.body)
-    res.redirect("/business/new")
+    res.redirect("/businesses")
 })
+
 
 
 

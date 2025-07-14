@@ -10,6 +10,7 @@
 
 <body>
     <h1>Create a New Business!</h1>
+    <a href="/businesses" class="add-business">Back to businesses</a>
     <form action="/businesses" method="POST">
         <label for="name">Business Name:</label>
         <input type="text" name="name" id="name" required />
@@ -28,10 +29,10 @@
 
         <label for="website">Website:</label>
         <input type="url" name="website" id="website" placeholder="https://example.com" />
-
-        <label for="isVerified">Verified Listing?</label>
-        <input type="checkbox" name="isVerified" id="isVerified" />
-
+        <div class="checkbox-div">
+            <label for="isVerified">Verified Listing?</label>
+            <input type="checkbox" name="isVerified" id="isVerified" />
+        </div>
         <button type="submit">Add Business</button>
     </form>
 
