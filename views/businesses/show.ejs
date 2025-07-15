@@ -46,15 +46,14 @@
                         <form action="/businesses/<%=findBusiness._id%>?_method=DELETE" method="POST">
                             <button class="delete-button" type="submit">Delete <%= findBusiness.name %> </button>
                         </form>
-                        <a class="edit-link" href="/businesses/<%= business._id %>/edit">
-                            <div class="edit-text">Edit <%= business.name %>
-                            </div>
-                        </a>
                     </div>
                     <a class="businesses-index-link" href="/businesses">
                         <div class="index-link-text">Back to All Businesses</div>
                     </a>
-
+                    <a class="edit-link" href="/businesses/<%= findBusiness._id %>/edit">
+                        <div class="edit-text">Edit <%= findBusiness.name %>
+                        </div>
+                    </a>
 
 </body>
 

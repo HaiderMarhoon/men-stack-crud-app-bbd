@@ -44,6 +44,16 @@ router.get('/:businessId/edit', async (req, res) => {
 	console.log(foundBusiness);
 });
 
-
+router.put("/:businessId",async(req,res) =>{
+        if (req.body.isVerified === "on") {
+        req.body.isVerified = true
+    }
+    else {
+        req.body.isVerified = false
+    }
+    console.log(req.body)
+    await Business.findByIdAndUpdate(req.params.businessId, req.body)
+    res.redirect(`/businesses/${req.params.businessId}`)
+})
 
 module.exports = router
