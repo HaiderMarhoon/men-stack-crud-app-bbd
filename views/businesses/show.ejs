@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <title><%= findBusiness.name%></title>
+    <title>
+        <%= findBusiness.name%>
+    </title>
 </head>
+
 <body>
-    <h1><%= findBusiness.name%></h1>
-    
+    <h1>
+        <%= findBusiness.name %>
+    </h1>
+
+    <% if (findBusiness.isVerified) { %> ✅ Verified <% } %>
+
+            <p><strong>Category:</strong>
+                <%= findBusiness.category %>
+            </p>
+
+            <p><strong>Description:</strong></p>
+            <p>
+                <%= findBusiness.description %>
+            </p>
+
+            <p><strong>Location:</strong>
+                <%= findBusiness.location %>
+            </p>
+
+            <p><strong>Phone:</strong>
+                <%= findBusiness.phoneNumber %>
+            </p>
+
+            <% if (findBusiness.website) { %>
+                <p>
+                    <strong>Website:</strong>
+                    <a href="<%= findBusiness.website %>" target="_blank">
+                        <%= findBusiness.website %>
+                    </a>
+                </p>
+                <% } %>
+                    <a class="businesses-index-link" href="/businesses">
+                        <div class="index-link-text">Back to All Businesses</div>
+                    </a>
 </body>
+
 </html>
