@@ -42,9 +42,15 @@
                     </a>
                 </p>
                 <% } %>
+                    <div class="actions">
+                        <form action="/businesses/<%=findBusiness._id%>?_method=DELETE" method="POST">
+                            <button class="delete-button" type="submit">Delete <%= findBusiness.name %> </button>
+                        </form>
+                    </div>
                     <a class="businesses-index-link" href="/businesses">
                         <div class="index-link-text">Back to All Businesses</div>
                     </a>
+
 </body>
 
 </html>
